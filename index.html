@@ -145,6 +145,7 @@ td.yes{color:#2f9e63;font-weight:600} td.no{color:var(--art,#c2343f);font-weight
 .bv{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums} .bv span{display:block;color:var(--muted);font-family:var(--body);font-size:12px}
 .bcap{margin:2px 0 0;font-size:12.5px;color:var(--muted)} .bcap b{display:inline-block;width:3px;height:12px;background:var(--art,#c2343f);vertical-align:-2px;margin-right:6px}
 @media (max-width:640px){.brow{grid-template-columns:1fr 1fr;gap:4px 10px} .bl{grid-column:1/-1;font-weight:600}}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;margin:18px 0 16px} .why>div{background:var(--plate);border:1px solid var(--line);border-top:3px solid var(--est);border-radius:8px;padding:12px 16px;min-width:0} .why p{margin:0;font-size:14.5px} .why .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
 .isobox{margin-top:14px;background:var(--plate);border:1px solid var(--line);border-left:3px solid var(--art,#c2343f);border-radius:8px;padding:12px 16px} .isobox p{margin:0 0 8px;font-size:14px;max-width:80ch} .isobox p:last-child{margin:0}
 .claim{font-family:var(--display);font-size:clamp(20px,3vw,27px);line-height:1.25;font-weight:600;max-width:30ch;margin:0 0 10px;text-wrap:balance}
 .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:12px}
@@ -232,6 +233,9 @@ td.yes{color:var(--ppg);font-weight:600} td.no{color:var(--art);font-weight:600}
 <header id="overview">
 <p class="eyebrow">Active-sensing blood pressure ring</p>
 <h1>One ring, three sensors, the KavAI world model that decides when to look closer</h1>
+<div class="why"><div><p class="k">Why no one has done it</p><p>It costs too much power. The sensors that read blood pressure well, laser speckle and ultrasound, use 10 to 50 times the power of PPG. Leave them on and a ring battery is empty in about an hour. Use PPG alone and the battery lasts, but the reading is not acceptable.</p></div>
+<div><p class="k">What KavAI changes</p><p>We do both: a good reading and a battery that lasts. The KavAI model runs a power budget like tokens. Every measurement has a price in energy, and the model spends only when the answer is worth it. The result is −1.0 ± 7.7 mmHg at 1.28 mW in simulation.</p></div>
+<div><p class="k">Why it scales</p><p>One multimodal model reads every sensor and decides which one to switch on. So more sensors can be added without draining the battery: each one costs power only in the moments it is used.</p></div></div>
 <p class="status"><span class="pill">Design stage</span>Simulated and specified, ahead of the first prototype. Accuracy figures assume a laser speckle signal strength of 0.75, which the bench rig measures first. The wristband version has its <a href="wristband.html">own page</a>.</p>
 </header>
 <nav class="toc" aria-label="Sections"><ul><li><a href="#overview">Overview</a></li><li><a href="#ring-3d">The ring</a></li><li><a href="#why">Why this design</a></li><li><a href="#how">How it works</a></li><li><a href="#results">Results</a></li><li><a href="#circuit">Electronics</a></li><li><a href="#phone-app">App</a></li><li><a href="#status">Status and next steps</a></li><li><a href="#file-list">Files</a></li></ul></nav>
