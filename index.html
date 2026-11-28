@@ -230,7 +230,7 @@ td.yes{color:var(--ppg);font-weight:600} td.no{color:var(--art);font-weight:600}
 </head><body><main>
 <header id="overview">
 <p class="eyebrow">Active-sensing blood pressure ring</p>
-<h1>One ring, three sensors, a world model that decides when to look closer</h1>
+<h1>One ring, three sensors, the KavAI world model that decides when to look closer</h1>
 <p class="status"><span class="pill">Design stage</span>Simulated and specified, ahead of the first prototype. Accuracy figures assume a laser speckle signal strength of 0.75, which the bench rig measures first. The wristband version has its <a href="wristband.html">own page</a>.</p>
 </header>
 <nav class="toc" aria-label="Sections"><ul><li><a href="#overview">Overview</a></li><li><a href="#ring-3d">The ring</a></li><li><a href="#why">Why this design</a></li><li><a href="#how">How it works</a></li><li><a href="#results">Results</a></li><li><a href="#circuit">Electronics</a></li><li><a href="#phone-app">App</a></li><li><a href="#status">Status and next steps</a></li><li><a href="#file-list">Files</a></li></ul></nav>
@@ -252,7 +252,7 @@ td.yes{color:var(--ppg);font-weight:600} td.no{color:var(--art);font-weight:600}
 <p class="adv"><strong>All sensors always on: 37.5 mW,</strong> under two hours. The KavAI model spends 29 times less.</p></div>
 <div class="tile"><p class="k">Compute</p><p class="v">30k</p><p class="u">multiply-accumulates per step, one step every 2 seconds, on the ring's Cortex-M33. About 8 microjoules a step (estimate)</p>
 <p class="adv"><strong>No phone or cloud in the loop.</strong> The decision to measure is made on the ring, for well under 1% of its power.</p></div>
-<div class="tile"><p class="k">Memory</p><p class="v">118 kB</p><p class="u">for the whole world model: 30,285 parameters, a 64-unit recurrent network</p>
+<div class="tile"><p class="k">Memory</p><p class="v">118 kB</p><p class="u">for the whole KavAI world model: 30,285 parameters, a 64-unit recurrent network</p>
 <p class="adv"><strong>Fits beside the firmware</strong> in the radio chip's own memory. No separate processor for the model.</p></div>
 </div>
 <div class="tiles" style="margin-top:14px">
