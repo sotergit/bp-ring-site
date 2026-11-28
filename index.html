@@ -162,6 +162,46 @@ td.yes{color:#2f9e63;font-weight:600} td.no{color:var(--art,#c2343f);font-weight
 .sheetblock{margin-top:22px} .sheetblock h3{font-family:var(--display);font-size:16px;margin:0 0 6px}
 .layers b{font-family:var(--mono);font-size:12.5px;font-weight:500} @media (max-width:560px){.layers li{grid-template-columns:1fr;gap:2px}}
 
+.film{margin:18px 0 6px;border-radius:14px;overflow:hidden;background:#0c1519;color:#e8eef0;border:1px solid #22323a}
+.film .stage{padding:8px 8px 0} .film svg{display:block;width:100%;height:auto}
+.film .f-lab{font:500 13px var(--body,system-ui);fill:#8fa0a8}
+.film .f-wave{fill:none;stroke:#ff6b5e;stroke-width:3.5;stroke-linejoin:round;stroke-linecap:round}
+.film .f-pred{fill:none;stroke:#ffd27a;stroke-width:2.5;stroke-dasharray:7 7;opacity:0;transition:opacity .8s}
+.film .f-real{transform-box:view-box;transform-origin:0 150px;transition:transform 1.4s cubic-bezier(.3,.1,.2,1)}
+.film .f-flow{animation:fflow 1.5s linear infinite} @keyframes fflow{to{transform:translateX(-160px)}}
+.film .f-beat{animation:fbeat 1.5s ease-out infinite;transform-box:fill-box;transform-origin:center} .film .f-beat2{animation:fbeat2 1.5s ease-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes fbeat{0%,100%{transform:scale(1)}12%{transform:scale(1.5)}30%{transform:scale(1)}} @keyframes fbeat2{0%{transform:scale(1);opacity:.9}70%,100%{transform:scale(3.4);opacity:0}}
+.film .ftags{display:grid;padding:10px 14px 0;text-align:center} .film .ft{grid-area:1/1;margin:0;font-size:14.5px;color:#b9c6cc;opacity:0;transition:opacity .6s}
+.film[data-scene="1"] .t1,.film[data-scene="2"] .t2,.film[data-scene="3"] .t3,.film[data-scene="4"] .t4,.film[data-scene="5"] .t5{opacity:1}
+.film .frow{display:grid;padding:2px 14px 6px} .film .fsens,.film .fvit{grid-area:1/1;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .7s,visibility .7s}
+.film[data-scene="2"] .fsens,.film[data-scene="3"] .fsens,.film[data-scene="4"] .fsens,.film[data-scene="5"] .fvit{opacity:1;visibility:visible}
+.film .chip{display:grid;grid-template-columns:auto auto;column-gap:8px;align-items:center;background:#131f25;border:1.5px solid #2a3b44;border-radius:10px;padding:7px 12px;color:#6f828b;transition:border-color .5s,background .5s,color .5s}
+.film .chip b,.film .chip em,.film .batt em{font-family:var(--body,system-ui)} .film .chip i{grid-row:1/3;width:12px;height:12px;border-radius:50%;background:#33454e;transition:background .5s} .film .chip b{font-size:14px;font-weight:600;line-height:1.25} .film .chip em{font-style:normal;font-size:12px;line-height:1.25;grid-column:2}
+.film .fvit .chip{grid-template-columns:auto;text-align:center} .film .fvit .chip em{grid-column:1}
+.film .ppg{--c:#3fbf7f} .film .las{--c:#c77dff} .film .us{--c:#5aa9ff} .film .chip.on,.film .fvit .chip{--x:0}
+.film[data-scene="2"] .fsens .chip,.film[data-scene="3"] .ppg,.film[data-scene="4"] .fsens .chip{border-color:var(--c);background:#18262d;color:#e8eef0}
+.film[data-scene="2"] .fsens .chip i,.film[data-scene="3"] .ppg i,.film[data-scene="4"] .fsens .chip i{background:var(--c)}
+.film[data-scene="4"] .las,.film[data-scene="4"] .las i{transition-delay:1.6s} .film[data-scene="4"] .us,.film[data-scene="4"] .us i{transition-delay:2.8s}
+.film[data-scene="5"] .fvit .chip{border-color:#ff8c42;background:#18262d;color:#e8eef0}
+.film[data-scene="5"] .fvit .chip:nth-child(2){transition-delay:.9s} .film[data-scene="5"] .fvit .chip:nth-child(3){transition-delay:1.6s} .film[data-scene="5"] .fvit .chip:nth-child(4){transition-delay:2.3s} .film[data-scene="5"] .fvit .chip:nth-child(5){transition-delay:3s}
+.film .batt{display:grid;justify-items:center;gap:3px;margin-left:8px} .film .cell{position:relative;display:block;width:74px;height:30px;border:2.5px solid #c9d3d8;border-radius:7px;padding:3px;box-sizing:border-box}
+.film .cell::after{content:"";position:absolute;right:-8px;top:7px;width:5px;height:11px;border-radius:2px;background:#c9d3d8}
+.film .fill{display:block;height:100%;border-radius:3px;background:#3fbf7f;transform-origin:left center;transition:transform .8s,background .8s}
+.film .batt em{grid-area:2/1;font-style:normal;font-size:12px;opacity:0;transition:opacity .5s} .film .b2{color:#ff6b5e} .film .b34{color:#3fbf7f}
+.film[data-scene="2"] .fill{transform:scaleX(.06);background:#ff6b5e;transition:transform 3.2s linear .5s,background 2s 1.4s} .film[data-scene="2"] .b2{opacity:1;transition-delay:2.2s}
+.film[data-scene="3"] .b34,.film[data-scene="4"] .b34{opacity:1} .film[data-scene="4"] .fill{transform:scaleX(.9)}
+.film[data-scene="3"] .f-pred,.film[data-scene="4"] .f-pred,.film[data-scene="5"] .f-pred{opacity:1}
+.film[data-scene="4"] .f-real{transform:scaleY(1.55)}
+.film .caps{display:grid;padding:6px 22px 4px} .film .cap{grid-area:1/1;opacity:0;visibility:hidden;transition:opacity .7s,visibility .7s;max-width:62ch}
+.film[data-scene="1"] .c1,.film[data-scene="2"] .c2,.film[data-scene="3"] .c3,.film[data-scene="4"] .c4,.film[data-scene="5"] .c5{opacity:1;visibility:visible}
+.film .cap p{margin:0;font-size:15px;line-height:1.5;color:#b9c6cc} .film .cap .big{font-family:var(--display,inherit);font-size:clamp(20px,3.2vw,30px);line-height:1.2;font-weight:600;color:#fff;margin-bottom:8px;text-wrap:balance}
+.film .fctl{display:flex;align-items:center;gap:10px;padding:12px 22px 16px}
+.film .fplay{font:500 12.5px var(--mono,monospace);color:#b9c6cc;background:none;border:1px solid #33454e;border-radius:999px;padding:5px 12px;cursor:pointer;min-width:64px}
+.film .fdot{width:28px;height:6px;border-radius:3px;border:0;padding:0;background:#33454e;cursor:pointer;position:relative} .film .fdot::after{content:"";position:absolute;inset:-10px 0}
+.film .fdot.on{background:#ff8c42} .film button:focus-visible{outline:2px solid #ffd27a;outline-offset:3px}
+@media (max-width:560px){.film .caps{padding:4px 14px} .film .fctl{padding:10px 14px 14px} .film .f-lab{display:none} .film .chip{padding:6px 9px} .film .chip b{font-size:13px} .film .frow{min-height:96px;align-items:center}}
+@media (prefers-reduced-motion:reduce){.film .f-flow,.film .f-beat,.film .f-beat2{animation:none} .film *{transition-duration:.01s!important;transition-delay:0s!important}}
+
 .v3d{position:relative;background:var(--plate);border:1px solid var(--line);border-radius:8px;overflow:hidden}
 .v3d canvas{display:block;width:100%;height:min(70vh,560px);touch-action:none;cursor:grab} .v3d canvas:active{cursor:grabbing}
 .v3d .tip{position:absolute;left:12px;top:12px;font-family:var(--mono);font-size:12px;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:4px 8px;pointer-events:none;max-width:calc(100% - 24px)}
@@ -233,6 +273,37 @@ td.yes{color:var(--ppg);font-weight:600} td.no{color:var(--art);font-weight:600}
 <header id="overview">
 <p class="eyebrow">Active-sensing blood pressure ring</p>
 <h1>One ring, three sensors, the KavAI world model that decides when to look closer</h1>
+<div class="film" data-scene="1" aria-roledescription="carousel" aria-label="How the ring works, in five scenes">
+<div class="stage">
+<div class="ftags"><p class="ft t1">Your pulse, as the ring feels it</p><p class="ft t2">All sensors on: the battery drains</p><p class="ft t3"><span style="color:#ff6b5e">Your signal</span> and <span style="color:#ffd27a">what the KavAI model expects</span>: they match</p><p class="ft t4">Your body changed: the signal has left the prediction</p><p class="ft t5">One model, all your signals</p></div>
+<svg viewBox="0 0 800 225" role="img" aria-label="Animation: a pulse wave from the finger, the sensors and battery, and the KavAI model's prediction of the wave">
+<defs>
+<clipPath id="fclip"><rect x="150" y="0" width="640" height="225"/></clipPath>
+<linearGradient id="ffade" gradientUnits="userSpaceOnUse" x1="150" x2="790" y1="0" y2="0"><stop offset="0" stop-color="#000"/><stop offset=".12" stop-color="#fff"/><stop offset=".9" stop-color="#fff"/><stop offset="1" stop-color="#000"/></linearGradient><mask id="fmask" maskUnits="userSpaceOnUse" x="150" y="0" width="640" height="225"><rect x="150" y="0" width="640" height="225" fill="url(#ffade)"/></mask>
+</defs>
+<g class="f-ring"><circle cx="78" cy="105" r="46" fill="none" stroke="#c9d3d8" stroke-width="13"/><circle cx="78" cy="105" r="46" fill="none" stroke="#7d8b92" stroke-width="1.5"/>
+<circle class="f-beat" cx="124" cy="105" r="6" fill="#ff6b5e"/><circle class="f-beat2" cx="124" cy="105" r="6" fill="none" stroke="#ff6b5e" stroke-width="2"/>
+<text x="78" y="185" text-anchor="middle" class="f-lab">the ring</text></g>
+<g clip-path="url(#fclip)" mask="url(#fmask)">
+<g class="f-flow"><g class="f-real"><path class="f-wave" d=""/></g><path class="f-pred" d=""/></g>
+</g>
+</svg>
+<div class="frow">
+<div class="fsens"><span class="chip ppg"><i></i><b>Light sensor</b><em>low power</em></span><span class="chip las"><i></i><b>Laser</b><em>accurate, costly</em></span><span class="chip us"><i></i><b>Ultrasound</b><em>sees the artery</em></span>
+<span class="batt"><span class="cell"><span class="fill"></span></span><em class="b2">empty in an hour</em><em class="b34">lasts for days</em></span></div>
+<div class="fvit"><span class="chip"><b>Blood pressure</b><em>first</em></span><span class="chip"><b>Heart rhythm</b></span><span class="chip"><b>Oxygen</b></span><span class="chip"><b>Temperature</b></span><span class="chip"><b>Artery health</b></span></div>
+</div>
+</div>
+<div class="caps" aria-live="polite">
+<div class="cap c1"><p class="big">Your body never stops sending signals.</p><p>Every heartbeat sends a wave of pressure down to your finger. Blood pressure and your other vital signs are written in that wave.</p></div>
+<div class="cap c2"><p class="big">Reading it well takes power a ring does not have.</p><p>A light sensor is cheap but not accurate enough. Laser and ultrasound read it properly, but left on they empty a ring battery in about an hour. That is why this has been tried many times and failed.</p></div>
+<div class="cap c3"><p class="big">The KavAI world model learns the signals of your body.</p><p>It learns your rhythm and predicts the next beat. While the prediction holds, only the low-power light sensor is awake.</p></div>
+<div class="cap c4"><p class="big">When your body surprises it, it looks closer.</p><p>The moment the real signal leaves the prediction, it wakes the laser, then ultrasound, takes an accurate reading and goes back to sleep. A good reading and a battery that lasts.</p></div>
+<div class="cap c5"><p class="big">Now we can read all your signals, and learn when something is going wrong.</p><p>Blood pressure comes first. The same model and the same power budget can take in the rest of your vital signs, learn what is normal for you, and flag a change early.</p></div>
+</div>
+<div class="fctl"><button type="button" class="fplay" aria-label="Pause">Pause</button>
+<button type="button" class="fdot" data-s="1" aria-label="Scene 1: your signals"></button><button type="button" class="fdot" data-s="2" aria-label="Scene 2: the power problem"></button><button type="button" class="fdot" data-s="3" aria-label="Scene 3: the model learns"></button><button type="button" class="fdot" data-s="4" aria-label="Scene 4: looking closer"></button><button type="button" class="fdot" data-s="5" aria-label="Scene 5: all your signals"></button></div>
+</div>
 <div class="why"><div><p class="k">Tried many times, and it failed, before the KavAI model</p><p>Cuffless blood pressure has been attempted many times. It fails on power. The sensors that read blood pressure well, laser speckle and ultrasound, use 10 to 50 times the power of PPG. Leave them on and a ring battery is empty in about an hour. Use PPG alone and the battery lasts, but the reading is not acceptable.</p></div>
 <div><p class="k">What KavAI changes</p><p>We do both: a good reading and a battery that lasts. The KavAI model runs a power budget like tokens. Every measurement has a price in energy, and the model spends only when the answer is worth it. The result is −1.0 ± 7.7 mmHg at 1.28 mW in simulation.</p></div>
 <div><p class="k">Why it scales</p><p>One multimodal model reads every sensor and decides which one to switch on. So more sensors can be added without draining the battery: each one costs power only in the moments it is used.</p></div></div>
@@ -622,4 +693,33 @@ document.querySelectorAll('.sheet').forEach(function (f) {
   f.addEventListener('click', t);
   f.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); t(); } });
 });
+</script>
+<script>
+(function () {
+  var film = document.querySelector('.film'); if (!film) return;
+  // one heartbeat of a finger pulse wave, 160 px long, repeated; baseline y=150
+  var beat = [[0,0],[14,-4],[26,-58],[38,-74],[52,-44],[64,-26],[74,-36],[88,-22],[112,-8],[136,-2],[160,0]];
+  function path() {
+    var d = '', x0 = 150;
+    for (var k = 0; k < 6; k++) for (var i = (k ? 1 : 0); i < beat.length; i++) {
+      var x = x0 + k * 160 + beat[i][0], y = 150 + beat[i][1] * 0.9 + 10;
+      if (!d) { d = 'M' + x + ' ' + y; continue; }
+      var p = beat[i - 1] || beat[beat.length - 2], px = x0 + k * 160 + (i ? beat[i - 1][0] : 0), py = 150 + (i ? beat[i - 1][1] : 0) * 0.9 + 10;
+      d += ' Q' + px + ' ' + py + ' ' + ((px + x) / 2) + ' ' + ((py + y) / 2);
+    }
+    return d;
+  }
+  var d = path(); film.querySelector('.f-wave').setAttribute('d', d); film.querySelector('.f-pred').setAttribute('d', d);
+  film.querySelector('.f-real').style.transformOrigin = '0 160px';
+  var dots = film.querySelectorAll('.fdot'), play = film.querySelector('.fplay'), n = 1, timer = null;
+  var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches, running = !still;
+  var dur = {1: 5500, 2: 8000, 3: 7000, 4: 9000, 5: 9000};
+  function show(s) { n = s; film.setAttribute('data-scene', s); dots.forEach(function (b) { b.classList.toggle('on', +b.dataset.s === s); }); }
+  function tick() { clearTimeout(timer); if (running) timer = setTimeout(function () { show(n % 5 + 1); tick(); }, dur[n]); }
+  function label() { play.textContent = running ? 'Pause' : 'Play'; play.setAttribute('aria-label', running ? 'Pause' : 'Play'); }
+  dots.forEach(function (b) { b.addEventListener('click', function () { show(+b.dataset.s); tick(); }); });
+  play.addEventListener('click', function () { running = !running; label(); tick(); });
+  document.addEventListener('visibilitychange', function () { if (document.hidden) clearTimeout(timer); else tick(); });
+  show(1); label(); tick();
+})();
 </script></body></html>
